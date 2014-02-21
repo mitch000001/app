@@ -3,7 +3,10 @@ class TimersController < ApplicationController
 
   def index
     authorize! :index, Timer
+    @week = Week.new
     @date = date
+    @timers = current_user.timers.where(date: [date.beginning_of_week..date.end_of_week])
+    @timers_by_task = @timers.all.group_by(&:task_id)
   end
 
   def new_import
