@@ -53,6 +53,8 @@ gem "bower-rails", github: '42dev/bower-rails'
 
 gem 'roo'
 
+gem 'reckoning-timesheet', path: "/Users/mortik/dev/reckoning/timesheet"
+
 group :test do
   gem 'rails-perftest'
   gem 'ruby-prof'

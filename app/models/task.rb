@@ -5,6 +5,9 @@ class Task < ActiveRecord::Base
   has_many :timers, dependent: :destroy
   has_and_belongs_to_many :weeks
 
+  delegate :name,
+    to: :project, prefix: true, allow_nil: true
+
   def timer_values
     values = 0.0
     timers.each do |timer|

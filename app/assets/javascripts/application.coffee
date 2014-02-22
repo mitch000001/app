@@ -13,6 +13,8 @@
 #= require i18n/translations
 #= require i18n_init
 #= require helper
+#= require reckoning_timesheet_dependencies
+#= require reckoning_timesheet
 #= require app
 #= require_tree ./app
 #

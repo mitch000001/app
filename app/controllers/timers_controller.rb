@@ -5,8 +5,12 @@ class TimersController < ApplicationController
     authorize! :index, Timer
     @week = Week.new
     @date = date
-    @timers = current_user.timers.where(date: [date.beginning_of_week..date.end_of_week])
-    @timers_by_task = @timers.all.group_by(&:task_id)
+    dates = []
+    (date.beginning_of_week..date.end_of_week).each do |d|
+      dates << {shortDate: I18n.l(d, format: :short), day: I18n.l(d, format: :day), date: I18n.l(d, format: :db)}
+    end
+    @tasks = current_user.tasks.includes(:timers).where('timers.date' => [date.beginning_of_week..date.end_of_week]).all
+    @dates = dates.to_json
   end
 
   def new_import

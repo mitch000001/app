@@ -4,6 +4,11 @@ GIT
   specs:
     bower-rails (0.7.1)
 
+PATH
+  remote: /Users/mortik/dev/reckoning/timesheet
+  specs:
+    reckoning-timesheet (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -228,6 +233,7 @@ DEPENDENCIES
   rails (~> 4.0.3)
   rails-asset-localization
   rails-perftest
+  reckoning-timesheet!
   redcarpet (~> 3.0.0)
   resque (~> 1.25.0)
   roo

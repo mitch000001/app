@@ -7,6 +7,7 @@ de:
       only_day: "%e"
       day_number: "%d"
       datepicker: "dd.mm.yy"
+      db: "%Y-%m-%d"
       month: "%B %Y"
       pdf: "%B-%Y"
       year: "%Y"
