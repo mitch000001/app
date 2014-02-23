@@ -13,6 +13,10 @@
 #= require i18n/translations
 #= require i18n_init
 #= require helper
+#= require moment/moment
+#= require moment_init
+#= require d3/d3
+#= require nvd3/nv.d3
 #= require reckoning_timesheet_dependencies
 #= require reckoning_timesheet
 #= require app
@@ -21,7 +25,7 @@
 #= require turbolinks
 
 window.setMinHeight = ->
-  offset = $('footer#main-footer').outerHeight() + $('nav#main-nav').outerHeight() - 50
+  offset = $('footer#main-footer').outerHeight() + $('nav#main-nav').outerHeight() + 20
   $('body > .container').css('min-height', $('body').height() - offset)
 
 $(document).on 'click', 'a.disabled', (evt) ->

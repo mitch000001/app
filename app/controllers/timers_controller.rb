@@ -3,14 +3,18 @@ class TimersController < ApplicationController
 
   def index
     authorize! :index, Timer
-    @week = Week.new
     @date = date
-    dates = []
+    projects = current_user.projects
+    if week.projects.present?
+      projects = projects.where("projects.id not in (?)", week.projects.map(&:id))
+    end
+    @projects = projects.all
+
+    @dates = []
     (date.beginning_of_week..date.end_of_week).each do |d|
-      dates << {shortDate: I18n.l(d, format: :short), day: I18n.l(d, format: :day), date: I18n.l(d, format: :db)}
+      @dates << {shortDate: I18n.l(d, format: :short), day: I18n.l(d, format: :day), date: I18n.l(d, format: :db)}
     end
     @tasks = current_user.tasks.includes(:timers).where('timers.date' => [date.beginning_of_week..date.end_of_week]).all
-    @dates = dates.to_json
   end
 
   def new_import
