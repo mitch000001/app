@@ -27,3 +27,6 @@ vendor/assets/bower.json
 
 # js translations
 public/javascripts/translations.js
+
+# node modules
+node_modules
