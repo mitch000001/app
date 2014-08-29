@@ -37,3 +37,6 @@ de:
     download_timesheet: "Stundenzettel speichern"
     dropbox_link: "Dropbox verbinden"
     dropbox_unlink: "Dropbox trennen"
+    harvest_link: "Harvest verbinden"
+    harvest_unlink: "Harvest trennen"
+    harvest_full_import: "Alle Daten aus Harvest importieren"

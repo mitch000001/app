@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   private
 
   def unauthorized_controllers
-    devise_controller? || is_a?(RailsAssetLocalization::LocalesController)
+    devise_controller?
   end
 
   def set_default_nav

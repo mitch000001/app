@@ -20,3 +20,20 @@
       %a.btn.btn-primary{href: start_dropbox_path}
         %i.fa.fa-dropbox
         = I18n.t(:"actions.dropbox_link")
+.row
+  .col-xs-12.col-md-6.form-group
+  .col-xs-12.col-md-6.form-group
+    %hr
+    - if current_user.harvest_token.present?
+      %a.btn.btn-primary{href: full_import_harvest_path}
+        %i.fa.fa-cloud-download
+          = I18n.t(:"actions.harvest_full_import")
+      %br
+      %br
+      %a.btn.btn-danger{href: deactivate_harvest_path}
+        %i.fa.fa-time
+        = I18n.t(:"actions.harvest_unlink")
+    - else
+      %a.btn.btn-primary{href: start_harvest_path}
+        %i.fa.fa-time
+        = I18n.t(:"actions.harvest_link")

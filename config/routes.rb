@@ -79,6 +79,15 @@ Reckoning::Application.routes.draw do
     end
   end
 
+  resource :harvest, controller: "harvest", only: [] do
+    collection do
+      get :start
+      get :activate
+      get :deactivate
+      get :full_import
+    end
+  end
+
   get '404' => 'errors#not_found'
   get '422' => 'errors#server_error'
   get '500' => 'errors#server_error'

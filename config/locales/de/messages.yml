@@ -102,6 +102,16 @@ de:
       deactivate:
         success: "Dropbox-Account erfolgreich getrennt"
         failure: "Beim Trennen Ihres Dropbox-Accounts ist ein Fehler aufgetreten."
+    harvest:
+      activate:
+        success: "Harvest-Account erfolgreich verbunden."
+        failure: "Ihr Harvest-Account konnte nicht verbunden werden."
+      deactivate:
+        success: "Harvest-Account erfolgreich getrennt"
+        failure: "Beim Trennen Ihres Harvest-Accounts ist ein Fehler aufgetreten."
+      full_import:
+        success: "Der Import ihrer Harvest-Daten wurde erfolgreich gestartet."
+        failure: "Der Import ihrer Harvest-Daten konnte nicht gestartet werden."
     demo_active: "Anwendung befindet sich im Demo-Modus, Sie dürfen nur eine Rechnung anlegen."
     confirm:
       form:

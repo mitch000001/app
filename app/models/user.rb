@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   store_accessor :settings, :tax, :tax_ref, :provision
 	store_accessor :bank_account, :bank, :account_number, :bank_code, :iban, :bic
-  store_accessor :services, :dropbox_user, :dropbox_token
+  store_accessor :services, :dropbox_user, :dropbox_token, :harvest_token, :harvest_refresh_token, :harvest_token_expiry_date
   store_accessor :mailing, :default_from, :signature
 
   has_one :address, as: :resource, dependent: :destroy
@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
 
   def has_dropbox?
     self.dropbox_token.present?
+  end
+
+  def has_harvest?
+    self.harvest_token.present?
   end
 
   private

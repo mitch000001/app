@@ -1,7 +1,6 @@
 require 'dropbox_sdk'
 
 class DropboxController < ApplicationController
-  skip_authorization_check
 
   DROPBOX_EXCEPTIONS = [
     DropboxOAuth2Flow::BadRequestError,
@@ -13,11 +12,13 @@ class DropboxController < ApplicationController
   ]
 
   def start
+    authorize! :update, current_user
     authorize_url = flow.start()
     redirect_to authorize_url
   end
 
   def activate
+    authorize! :update, current_user
     begin
       access_token, user_id = flow.finish(params)
 
@@ -32,6 +33,7 @@ class DropboxController < ApplicationController
   end
 
   def deactivate
+    authorize! :update, current_user
     begin
       client = DropboxClient.new(current_user.dropbox_token)
       client.disable_access_token
